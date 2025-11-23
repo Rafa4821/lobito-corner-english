@@ -1,0 +1,77 @@
+/**
+ * Design Tokens
+ * Variables CSS globales para identidad visual
+ * Modificar aquí para cambiar toda la paleta del proyecto
+ */
+
+:root {
+  /* Colores de marca */
+  --brand-primary: #6366f1;
+  --brand-secondary: #22c55e;
+  --brand-accent: #f97316;
+
+  /* Fondos */
+  --brand-bg: #ffffff;
+  --brand-bg-alt: #f8fafc;
+  --brand-surface: #ffffff;
+  --brand-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Textos */
+  --brand-text: #1f2937;
+  --brand-text-light: #374151;
+  --brand-muted: #6b7280;
+  --brand-text-inverse: #ffffff;
+
+  /* Estados */
+  --brand-success: #22c55e;
+  --brand-warning: #f59e0b;
+  --brand-error: #ef4444;
+  --brand-info: #3b82f6;
+
+  /* Bordes */
+  --brand-border: #e5e7eb;
+  --brand-border-light: #f3f4f6;
+
+  /* Radios */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+  /* Espaciado */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Tipografía */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+
+  /* Transiciones */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* Dark mode (preparado para futuro) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand-bg: #111827;
+    --brand-bg-alt: #1f2937;
+    --brand-surface: #1f2937;
+    --brand-text: #f9fafb;
+    --brand-text-light: #e5e7eb;
+    --brand-muted: #9ca3af;
+    --brand-border: #374151;
+    --brand-border-light: #1f2937;
+  }
+}
