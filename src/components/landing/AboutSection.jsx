@@ -2,9 +2,9 @@
  * About Section - Quiénes Somos
  */
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Card } from '@design';
-// import anime from 'animejs';
+import { motion } from 'framer-motion';
 
 const AboutSection = () => {
   const sectionRef = useRef(null);

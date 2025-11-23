@@ -3,62 +3,13 @@
  * Sección principal con animaciones
  */
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Button } from '@design';
 import { useNavigate } from 'react-router-dom';
-// import anime from 'animejs';
+import { motion } from 'framer-motion';
 
 const HeroSection = () => {
   const navigate = useNavigate();
-  const heroRef = useRef(null);
-  const titleRef = useRef(null);
-  const subtitleRef = useRef(null);
-  const ctaRef = useRef(null);
-  const floatingRef = useRef(null);
-
-  useEffect(() => {
-    // Animaciones temporalmente deshabilitadas para deploy
-    // TODO: Reemplazar con CSS animations o librería compatible
-    
-    // // Animación del título
-    // anime({
-    //   targets: titleRef.current,
-    //   translateY: [-50, 0],
-    //   opacity: [0, 1],
-    //   duration: 1200,
-    //   easing: 'easeOutExpo',
-    // });
-
-    // // Animación del subtítulo
-    // anime({
-    //   targets: subtitleRef.current,
-    //   translateY: [30, 0],
-    //   opacity: [0, 1],
-    //   duration: 1200,
-    //   delay: 300,
-    //   easing: 'easeOutExpo',
-    // });
-
-    // // Animación de los botones
-    // anime({
-    //   targets: ctaRef.current?.children,
-    //   translateY: [30, 0],
-    //   opacity: [0, 1],
-    //   duration: 800,
-    //   delay: anime.stagger(150, { start: 600 }),
-    //   easing: 'easeOutExpo',
-    // });
-
-    // // Animación flotante continua
-    // anime({
-    //   targets: floatingRef.current,
-    //   translateY: [-20, 20],
-    //   duration: 3000,
-    //   direction: 'alternate',
-    //   loop: true,
-    //   easing: 'easeInOutSine',
-    // });
-  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#2C3E50] via-[#34495E] to-[#2C3E50]">
@@ -69,25 +20,38 @@ const HeroSection = () => {
         }}></div>
       </div>
 
-      <div ref={heroRef} className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Contenido */}
           <div className="text-white space-y-8">
-            <div ref={titleRef} className="animate-fade-in">
+            <motion.div
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 Learn English
                 <span className="block text-[#F4B942]">with Confidence</span>
               </h1>
-            </div>
+            </motion.div>
 
-            <div ref={subtitleRef} className="animate-fade-in animation-delay-300">
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            >
               <p className="text-xl md:text-2xl text-gray-300">
                 Clases personalizadas de inglés con un profesor nativo. 
                 Mejora tu fluidez, gramática y pronunciación desde casa.
               </p>
-            </div>
+            </motion.div>
 
-            <div ref={ctaRef} className="flex flex-wrap gap-4">
+            <motion.div
+              className="flex flex-wrap gap-4"
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+            >
               <Button
                 variant="primary"
                 size="lg"
@@ -106,10 +70,15 @@ const HeroSection = () => {
               >
                 Ver Paquetes
               </Button>
-            </div>
+            </motion.div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8">
+            <motion.div
+              className="grid grid-cols-3 gap-6 pt-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+            >
               <div className="text-center">
                 <div className="text-4xl font-bold text-[#F4B942]">500+</div>
                 <div className="text-sm text-gray-300">Estudiantes</div>
@@ -122,11 +91,16 @@ const HeroSection = () => {
                 <div className="text-4xl font-bold text-[#F4B942]">5+</div>
                 <div className="text-sm text-gray-300">Años Exp.</div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Ilustración/Logo flotante */}
-          <div ref={floatingRef} className="hidden lg:flex justify-center items-center">
+          <motion.div
+            className="hidden lg:flex justify-center items-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
             <div className="relative">
               {/* Círculo de fondo */}
               <div className="absolute inset-0 bg-[#F4B942] rounded-full opacity-20 blur-3xl scale-150"></div>
@@ -147,16 +121,20 @@ const HeroSection = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <motion.div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      >
         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
-      </div>
+      </motion.div>
     </section>
   );
 };

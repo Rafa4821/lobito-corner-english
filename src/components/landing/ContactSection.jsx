@@ -2,9 +2,9 @@
  * Contact Section - Contáctanos
  */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Card, Button, Input } from '@design';
-// import anime from 'animejs';
+import { motion } from 'framer-motion';
 
 const ContactSection = () => {
   const sectionRef = useRef(null);
