@@ -5,7 +5,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Card, Button } from '@design';
 import { useNavigate } from 'react-router-dom';
-import anime from 'animejs';
+// import anime from 'animejs';
 
 const ServicesSection = () => {
   const navigate = useNavigate();
@@ -17,15 +17,15 @@ const ServicesSection = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Animar cards cuando entran en viewport
-            anime({
-              targets: cardsRef.current?.children,
-              translateY: [50, 0],
-              opacity: [0, 1],
-              duration: 800,
-              delay: anime.stagger(200),
-              easing: 'easeOutExpo',
-            });
+            // Animaciones temporalmente deshabilitadas
+            // anime({
+            //   targets: cardsRef.current?.children,
+            //   translateY: [50, 0],
+            //   opacity: [0, 1],
+            //   duration: 800,
+            //   delay: anime.stagger(200),
+            //   easing: 'easeOutExpo',
+            // });
             observer.unobserve(entry.target);
           }
         });

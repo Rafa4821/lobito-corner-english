@@ -6,7 +6,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@design';
 import { useNavigate } from 'react-router-dom';
-import anime from 'animejs';
+// import anime from 'animejs';
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -17,44 +17,47 @@ const HeroSection = () => {
   const floatingRef = useRef(null);
 
   useEffect(() => {
-    // Animación del título
-    anime({
-      targets: titleRef.current,
-      translateY: [-50, 0],
-      opacity: [0, 1],
-      duration: 1200,
-      easing: 'easeOutExpo',
-    });
+    // Animaciones temporalmente deshabilitadas para deploy
+    // TODO: Reemplazar con CSS animations o librería compatible
+    
+    // // Animación del título
+    // anime({
+    //   targets: titleRef.current,
+    //   translateY: [-50, 0],
+    //   opacity: [0, 1],
+    //   duration: 1200,
+    //   easing: 'easeOutExpo',
+    // });
 
-    // Animación del subtítulo
-    anime({
-      targets: subtitleRef.current,
-      translateY: [30, 0],
-      opacity: [0, 1],
-      duration: 1200,
-      delay: 300,
-      easing: 'easeOutExpo',
-    });
+    // // Animación del subtítulo
+    // anime({
+    //   targets: subtitleRef.current,
+    //   translateY: [30, 0],
+    //   opacity: [0, 1],
+    //   duration: 1200,
+    //   delay: 300,
+    //   easing: 'easeOutExpo',
+    // });
 
-    // Animación de los botones
-    anime({
-      targets: ctaRef.current?.children,
-      translateY: [30, 0],
-      opacity: [0, 1],
-      duration: 800,
-      delay: anime.stagger(150, { start: 600 }),
-      easing: 'easeOutExpo',
-    });
+    // // Animación de los botones
+    // anime({
+    //   targets: ctaRef.current?.children,
+    //   translateY: [30, 0],
+    //   opacity: [0, 1],
+    //   duration: 800,
+    //   delay: anime.stagger(150, { start: 600 }),
+    //   easing: 'easeOutExpo',
+    // });
 
-    // Animación flotante continua
-    anime({
-      targets: floatingRef.current,
-      translateY: [-20, 20],
-      duration: 3000,
-      direction: 'alternate',
-      loop: true,
-      easing: 'easeInOutSine',
-    });
+    // // Animación flotante continua
+    // anime({
+    //   targets: floatingRef.current,
+    //   translateY: [-20, 20],
+    //   duration: 3000,
+    //   direction: 'alternate',
+    //   loop: true,
+    //   easing: 'easeInOutSine',
+    // });
   }, []);
 
   return (
@@ -70,14 +73,14 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Contenido */}
           <div className="text-white space-y-8">
-            <div ref={titleRef} className="opacity-0">
+            <div ref={titleRef} className="animate-fade-in">
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 Learn English
                 <span className="block text-[#F4B942]">with Confidence</span>
               </h1>
             </div>
 
-            <div ref={subtitleRef} className="opacity-0">
+            <div ref={subtitleRef} className="animate-fade-in animation-delay-300">
               <p className="text-xl md:text-2xl text-gray-300">
                 Clases personalizadas de inglés con un profesor nativo. 
                 Mejora tu fluidez, gramática y pronunciación desde casa.
