@@ -102,8 +102,8 @@ const router = createBrowserRouter([
       {
         path: 'calendar',
         element: (
-          <ProtectedRoute requireRole="student">
-            <StudentBookingPage />
+          <ProtectedRoute>
+            <CalendarPage />
           </ProtectedRoute>
         ),
       },
@@ -112,6 +112,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute requireRole="teacher">
             <TeacherCalendarPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'student/calendar',
+        element: (
+          <ProtectedRoute requireRole="student">
+            <StudentBookingPage />
           </ProtectedRoute>
         ),
       },

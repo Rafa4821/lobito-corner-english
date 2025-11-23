@@ -1,11 +1,12 @@
 /**
  * Logo Component
- * Componente placeholder preparado para reemplazo fácil
- * Cambiar solo este archivo cuando llegue la identidad visual
+ * Logo oficial de Lobito Corner
  */
 
 import React from 'react';
 import PropTypes from 'prop-types';
+
+const LOGO_URL = 'https://firebasestorage.googleapis.com/v0/b/lc-english-e52c2.firebasestorage.app/o/WhatsApp_Image_2025-11-22_at_10.39.37_PM-removebg-preview.png?alt=media&token=68a2d6c0-8aaf-4510-a84c-8614786dfee7';
 
 const Logo = ({ 
   variant = 'full', 
@@ -22,27 +23,25 @@ const Logo = ({
 
   const sizeClass = sizes[size] || sizes.md;
 
-  // Placeholder temporal - reemplazar con logo real
+  // Variant solo icono
   if (variant === 'icon') {
     return (
-      <div 
-        className={`${sizeClass} aspect-square rounded-lg bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-accent)] flex items-center justify-center ${className}`}
-        aria-label="Logo"
-      >
-        <span className="text-white font-bold text-xl">LC</span>
-      </div>
+      <img 
+        src={LOGO_URL}
+        alt="Lobito Corner Logo"
+        className={`${sizeClass} w-auto object-contain ${className}`}
+      />
     );
   }
 
   // Variant 'full' con texto
   return (
     <div className={`flex items-center gap-2 ${className}`}>
-      <div 
-        className={`${sizeClass} aspect-square rounded-lg bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-accent)] flex items-center justify-center`}
-        aria-label="Logo"
-      >
-        <span className="text-white font-bold text-xl">LC</span>
-      </div>
+      <img 
+        src={LOGO_URL}
+        alt="Lobito Corner Logo"
+        className={`${sizeClass} w-auto object-contain`}
+      />
       {variant === 'full' && (
         <span className="text-[var(--brand-text)] font-bold text-xl">
           Lobito Corner

@@ -15,7 +15,11 @@ const LandingFooter = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="text-4xl">🦊</div>
+              <img 
+                src="https://firebasestorage.googleapis.com/v0/b/lc-english-e52c2.firebasestorage.app/o/WhatsApp_Image_2025-11-22_at_10.39.37_PM-removebg-preview.png?alt=media&token=68a2d6c0-8aaf-4510-a84c-8614786dfee7"
+                alt="Lobito Corner Logo"
+                className="h-12 w-auto object-contain"
+              />
               <div>
                 <div className="font-bold text-xl">Lobito Corner</div>
                 <div className="text-[#F4B942] text-sm">ENGLISH</div>

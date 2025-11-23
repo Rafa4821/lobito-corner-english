@@ -41,12 +41,13 @@ export const registerUser = async ({ email, password, name, role = 'student' }) 
     await sendEmailVerification(user);
 
     // Enviar email de bienvenida (no bloqueante)
-    sendWelcomeEmail({
-      userName: name,
-      userEmail: email,
-    }).catch((error) => {
-      console.warn('Error sending welcome email:', error);
-    });
+    // NOTA: Deshabilitado temporalmente - Resend requiere backend
+    // sendWelcomeEmail({
+    //   userName: name,
+    //   userEmail: email,
+    // }).catch((error) => {
+    //   console.warn('Error sending welcome email:', error);
+    // });
 
     return { user, error: null };
   } catch (error) {

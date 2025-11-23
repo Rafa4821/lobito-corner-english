@@ -134,7 +134,11 @@ const HeroSection = () => {
               {/* Logo o ilustración */}
               <div className="relative bg-white rounded-3xl p-12 shadow-2xl">
                 <div className="text-center space-y-4">
-                  <div className="text-8xl">🦊</div>
+                  <img 
+                    src="https://firebasestorage.googleapis.com/v0/b/lc-english-e52c2.firebasestorage.app/o/WhatsApp_Image_2025-11-22_at_10.39.37_PM-removebg-preview.png?alt=media&token=68a2d6c0-8aaf-4510-a84c-8614786dfee7"
+                    alt="Lobito Corner Logo"
+                    className="w-48 h-48 mx-auto object-contain"
+                  />
                   <div className="text-2xl font-bold text-[#2C3E50]">Lobito Corner</div>
                   <div className="text-lg text-[#7FB069] font-semibold">ENGLISH</div>
                   <div className="flex items-center justify-center gap-2 text-[#F4B942]">
