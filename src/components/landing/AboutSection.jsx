@@ -2,9 +2,9 @@
  * About Section - Quiénes Somos
  */
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Card } from '@design';
-import { motion } from 'framer-motion';
+// import anime from 'animejs';
 
 const AboutSection = () => {
   const sectionRef = useRef(null);
@@ -16,24 +16,23 @@ const AboutSection = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Animar contenido
-            anime({
-              targets: contentRef.current,
-              translateX: [-100, 0],
-              opacity: [0, 1],
-              duration: 1000,
-              easing: 'easeOutExpo',
-            });
+            // Animaciones temporalmente deshabilitadas
+            // anime({
+            //   targets: contentRef.current,
+            //   translateX: [-100, 0],
+            //   opacity: [0, 1],
+            //   duration: 1000,
+            //   easing: 'easeOutExpo',
+            // });
 
-            // Animar stats
-            anime({
-              targets: statsRef.current?.children,
-              scale: [0, 1],
-              opacity: [0, 1],
-              duration: 600,
-              delay: anime.stagger(150, { start: 500 }),
-              easing: 'easeOutBack',
-            });
+            // anime({
+            //   targets: statsRef.current?.children,
+            //   scale: [0, 1],
+            //   opacity: [0, 1],
+            //   duration: 600,
+            //   delay: anime.stagger(150, { start: 500 }),
+            //   easing: 'easeOutBack',
+            // });
 
             observer.unobserve(entry.target);
           }

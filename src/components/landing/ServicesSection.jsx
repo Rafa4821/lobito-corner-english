@@ -2,35 +2,43 @@
  * Services Section - Paquetes de Clases
  */
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Card, Button } from '@design';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+// import anime from 'animejs';
 
 const ServicesSection = () => {
   const navigate = useNavigate();
+  const sectionRef = useRef(null);
+  const cardsRef = useRef(null);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animaciones temporalmente deshabilitadas
+            // anime({
+            //   targets: cardsRef.current?.children,
+            //   translateY: [50, 0],
+            //   opacity: [0, 1],
+            //   duration: 800,
+            //   delay: anime.stagger(200),
+            //   easing: 'easeOutExpo',
+            // });
+            observer.unobserve(entry.target);
+          }
+        });
       },
-    },
-  };
+      { threshold: 0.1 }
+    );
 
-  const cardVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const packages = [
     {
@@ -91,6 +99,7 @@ const ServicesSection = () => {
   return (
     <section
       id="servicios"
+      ref={sectionRef}
       className="py-20 bg-gradient-to-b from-white to-gray-50"
     >
       <div className="container mx-auto px-6">
@@ -105,18 +114,11 @@ const ServicesSection = () => {
         </div>
 
         {/* Cards */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {packages.map((pkg, index) => (
-            <motion.div
+            <div
               key={index}
-              className={`${pkg.popular ? 'md:-mt-4 md:mb-4' : ''}`}
-              variants={cardVariants}
+              className={`opacity-0 ${pkg.popular ? 'md:-mt-4 md:mb-4' : ''}`}
             >
               <Card
                 variant="elevated"
@@ -180,9 +182,9 @@ const ServicesSection = () => {
                   </Button>
                 </div>
               </Card>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Extra info */}
         <div className="text-center mt-12">

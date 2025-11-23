@@ -2,9 +2,9 @@
  * Contact Section - Contáctanos
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card, Button, Input } from '@design';
-import { motion } from 'framer-motion';
+// import anime from 'animejs';
 
 const ContactSection = () => {
   const sectionRef = useRef(null);
@@ -23,13 +23,14 @@ const ContactSection = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            anime({
-              targets: formRef.current,
-              translateY: [50, 0],
-              opacity: [0, 1],
-              duration: 1000,
-              easing: 'easeOutExpo',
-            });
+            // Animaciones temporalmente deshabilitadas
+            // anime({
+            //   targets: formRef.current,
+            //   translateY: [50, 0],
+            //   opacity: [0, 1],
+            //   duration: 1000,
+            //   easing: 'easeOutExpo',
+            // });
             observer.unobserve(entry.target);
           }
         });
