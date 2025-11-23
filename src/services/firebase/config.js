@@ -18,6 +18,12 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
+// Validar que las variables de entorno estén configuradas
+if (!firebaseConfig.apiKey) {
+  console.error('❌ VITE_FIREBASE_API_KEY no está configurada');
+  console.error('Variables disponibles:', import.meta.env);
+}
+
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 
