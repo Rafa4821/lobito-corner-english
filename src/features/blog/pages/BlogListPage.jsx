@@ -55,7 +55,7 @@ const BlogListPage = () => {
         {isTeacher() && (
           <Button 
             variant="primary"
-            onClick={() => navigate('/blog/new')}
+            onClick={() => navigate('/app/blog/new')}
           >
             ✍️ Nuevo Post
           </Button>
@@ -142,7 +142,7 @@ const BlogListPage = () => {
           {isTeacher() && (
             <Button 
               variant="primary"
-              onClick={() => navigate('/blog/new')}
+              onClick={() => navigate('/app/blog/new')}
             >
               ✍️ Crear Primer Post
             </Button>

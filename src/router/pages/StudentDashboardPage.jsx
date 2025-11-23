@@ -311,7 +311,7 @@ const StudentDashboardPage = () => {
                   variant="outline"
                   size="sm"
                   fullWidth
-                  onClick={() => navigate('/products')}
+                  onClick={() => navigate('/app/products')}
                 >
                   Ver Productos
                 </Button>
@@ -329,7 +329,7 @@ const StudentDashboardPage = () => {
                   variant="outline"
                   size="sm"
                   fullWidth
-                  onClick={() => navigate('/products')}
+                  onClick={() => navigate('/app/products')}
                 >
                   Ver Todos
                 </Button>

@@ -261,7 +261,7 @@ const TeacherDashboardPage = () => {
               variant="outline" 
               fullWidth 
               className="mt-4"
-              onClick={() => navigate('/blog')}
+              onClick={() => navigate('/app/blog')}
             >
               Ver Todos
             </Button>

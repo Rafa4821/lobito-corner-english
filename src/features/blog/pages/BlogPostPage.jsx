@@ -43,7 +43,7 @@ const BlogPostPage = () => {
     if (error) {
       alert('Error al eliminar el post');
     } else {
-      navigate('/blog');
+      navigate('/app/blog');
     }
   };
 

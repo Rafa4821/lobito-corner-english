@@ -106,13 +106,13 @@ const NotificationBell = () => {
         navigate('/recordings');
         break;
       case 'new_message':
-        navigate('/chat');
+        navigate('/app/chat');
         break;
       case 'new_blog_post':
-        navigate('/blog');
+        navigate('/app/blog');
         break;
       default:
-        navigate('/notifications');
+        navigate('/app/notifications');
     }
 
     setShowDropdown(false);

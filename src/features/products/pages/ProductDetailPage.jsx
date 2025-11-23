@@ -50,7 +50,7 @@ const ProductDetailPage = () => {
           <p className="text-[var(--brand-muted)]">
             {error || 'El producto que buscas no existe'}
           </p>
-          <Button variant="primary" onClick={() => navigate('/products')}>
+          <Button variant="primary" onClick={() => navigate('/app/products')}>
             Ver todos los productos
           </Button>
         </div>
@@ -63,7 +63,7 @@ const ProductDetailPage = () => {
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-[var(--brand-muted)]">
         <button 
-          onClick={() => navigate('/products')}
+          onClick={() => navigate('/app/products')}
           className="hover:text-[var(--brand-primary)] transition-colors"
         >
           Productos

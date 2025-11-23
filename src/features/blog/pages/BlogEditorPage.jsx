@@ -23,7 +23,7 @@ const BlogEditorPage = () => {
   useEffect(() => {
     // Verificar que sea profesor
     if (!isTeacher()) {
-      navigate('/blog');
+      navigate('/app/blog');
       return;
     }
 
@@ -39,14 +39,14 @@ const BlogEditorPage = () => {
     
     if (error || !post) {
       alert('Error al cargar el post');
-      navigate('/blog');
+      navigate('/app/blog');
       return;
     }
 
     // Verificar que sea el autor
     if (post.authorId !== user.uid) {
       alert('No tienes permiso para editar este post');
-      navigate('/blog');
+      navigate('/app/blog');
       return;
     }
 
