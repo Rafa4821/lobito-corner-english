@@ -4,7 +4,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Card } from '@design';
-import anime from 'animejs';
+import anime from 'animejs/lib/anime.es.js';
 
 const AboutSection = () => {
   const sectionRef = useRef(null);

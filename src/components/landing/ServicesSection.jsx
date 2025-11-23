@@ -5,7 +5,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Card, Button } from '@design';
 import { useNavigate } from 'react-router-dom';
-import anime from 'animejs';
+import anime from 'animejs/lib/anime.es.js';
 
 const ServicesSection = () => {
   const navigate = useNavigate();
