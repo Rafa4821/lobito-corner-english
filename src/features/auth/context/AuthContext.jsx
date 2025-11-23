@@ -7,6 +7,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/services/firebase';
 import { getUserDocument } from '../services/userService';
+import { initializeCurrentUser } from '@/utils/initializeUsers';
 import PropTypes from 'prop-types';
 
 const AuthContext = createContext({});
@@ -31,8 +32,16 @@ export const AuthProvider = ({ children }) => {
         if (firebaseUser) {
           // Usuario autenticado - obtener datos de Firestore
           console.log('🔐 Usuario autenticado:', firebaseUser.email);
-          const firestoreData = await getUserDocument(firebaseUser.uid);
+          let firestoreData = await getUserDocument(firebaseUser.uid);
           console.log('📄 Datos de Firestore:', firestoreData);
+          
+          // Si no existe el documento, crearlo automáticamente
+          if (!firestoreData) {
+            console.log('⚠️ Documento no existe, creando automáticamente...');
+            firestoreData = await initializeCurrentUser(firebaseUser, 'student');
+            console.log('✅ Documento creado:', firestoreData);
+          }
+          
           console.log('👤 Rol del usuario:', firestoreData?.role);
           
           setUser(firebaseUser);
