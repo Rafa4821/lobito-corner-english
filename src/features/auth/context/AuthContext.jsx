@@ -30,17 +30,21 @@ export const AuthProvider = ({ children }) => {
       try {
         if (firebaseUser) {
           // Usuario autenticado - obtener datos de Firestore
+          console.log('🔐 Usuario autenticado:', firebaseUser.email);
           const firestoreData = await getUserDocument(firebaseUser.uid);
+          console.log('📄 Datos de Firestore:', firestoreData);
+          console.log('👤 Rol del usuario:', firestoreData?.role);
           
           setUser(firebaseUser);
           setUserData(firestoreData);
         } else {
           // Usuario no autenticado
+          console.log('🚪 Usuario no autenticado');
           setUser(null);
           setUserData(null);
         }
       } catch (err) {
-        console.error('Error in auth state change:', err);
+        console.error('❌ Error in auth state change:', err);
         setError(err.message);
       } finally {
         setLoading(false);
