@@ -21,7 +21,7 @@ const EmptyProducts = ({ message = 'No hay productos disponibles' }) => {
         </p>
         <Button 
           variant="outline"
-          onClick={() => navigate('/dashboard')}
+          onClick={() => navigate('/app')}
         >
           Volver al Dashboard
         </Button>

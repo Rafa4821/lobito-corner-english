@@ -61,9 +61,9 @@ const DemoUsersPage = () => {
     if (loggedUser) {
       // Redirigir según el rol
       if (user.role === 'teacher') {
-        navigate('/teacher/dashboard');
+        navigate('/app/teacher/dashboard');
       } else {
-        navigate('/dashboard');
+        navigate('/app');
       }
     }
 

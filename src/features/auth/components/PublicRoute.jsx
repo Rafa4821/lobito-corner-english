@@ -22,7 +22,7 @@ const PublicRoute = ({ children }) => {
 
   // Redirigir a dashboard si ya está autenticado
   if (user) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to="/app" replace />;
   }
 
   return children;

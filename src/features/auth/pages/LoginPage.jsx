@@ -61,7 +61,7 @@ const LoginPage = () => {
     }
 
     if (user) {
-      navigate('/dashboard');
+      navigate('/app');
     }
 
     setLoading(false);

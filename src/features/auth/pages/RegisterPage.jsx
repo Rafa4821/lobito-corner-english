@@ -97,7 +97,7 @@ const RegisterPage = () => {
     }
 
     if (user) {
-      navigate('/dashboard');
+      navigate('/app');
     }
 
     setLoading(false);
