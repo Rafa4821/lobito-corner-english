@@ -40,13 +40,24 @@ import {
 } from '@features/auth';
 
 const router = createBrowserRouter([
+  // Landing Page (sin layout)
   {
     path: '/',
+    element: <HomePage />,
+  },
+  
+  // Backoffice/Plataforma (con MainLayout)
+  {
+    path: '/app',
     element: <MainLayout />,
     children: [
       {
         index: true,
-        element: <HomePage />,
+        element: (
+          <ProtectedRoute>
+            <DashboardPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: 'dashboard',
