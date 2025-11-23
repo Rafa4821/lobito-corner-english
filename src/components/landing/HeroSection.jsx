@@ -6,7 +6,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@design';
 import { useNavigate } from 'react-router-dom';
-import anime from 'animejs/lib/anime.es.js';
+import anime from 'animejs';
 
 const HeroSection = () => {
   const navigate = useNavigate();

@@ -15,4 +15,12 @@ export default defineConfig({
       '@utils': path.resolve(__dirname, './src/utils'),
     },
   },
+  optimizeDeps: {
+    include: ['animejs'],
+  },
+  build: {
+    commonjsOptions: {
+      include: [/animejs/, /node_modules/],
+    },
+  },
 })

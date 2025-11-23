@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Card, Button, Input } from '@design';
-import anime from 'animejs/lib/anime.es.js';
+import anime from 'animejs';
 
 const ContactSection = () => {
   const sectionRef = useRef(null);
