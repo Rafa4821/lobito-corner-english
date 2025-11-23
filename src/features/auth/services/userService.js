@@ -39,15 +39,27 @@ export const createUserDocument = async (userId, userData) => {
  */
 export const getUserDocument = async (userId) => {
   try {
+    console.log('🔍 Buscando usuario con UID:', userId);
+    console.log('📁 Colección:', USERS_COLLECTION);
+    
     const userRef = doc(db, USERS_COLLECTION, userId);
+    console.log('📄 Referencia del documento:', userRef.path);
+    
     const userSnap = await getDoc(userRef);
+    console.log('📦 Documento existe:', userSnap.exists());
 
     if (userSnap.exists()) {
-      return { ...userSnap.data(), id: userSnap.id };
+      const data = { ...userSnap.data(), id: userSnap.id };
+      console.log('✅ Datos encontrados:', data);
+      return data;
     }
+    
+    console.log('❌ Documento no encontrado en Firestore');
     return null;
   } catch (error) {
-    console.error('Error getting user document:', error);
+    console.error('❌ Error getting user document:', error);
+    console.error('Error code:', error.code);
+    console.error('Error message:', error.message);
     return null;
   }
 };

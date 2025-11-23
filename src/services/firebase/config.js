@@ -32,4 +32,10 @@ export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
 
+// Verificar que Firestore esté inicializado
+console.log('🔥 Firebase inicializado');
+console.log('📦 Firestore DB:', db ? 'OK' : 'ERROR');
+console.log('🔐 Auth:', auth ? 'OK' : 'ERROR');
+console.log('📁 Project ID:', firebaseConfig.projectId);
+
 export default app;
